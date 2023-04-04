@@ -1,0 +1,46 @@
+//! contains styles for recipe cards and recipe sections
+.recipes {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: twConv(4);
+  padding-right: twConv(4);
+
+  width: 100%;
+}
+
+@media (min-width: #{nth($breakpoints, 3)}) {
+  .recipes {
+    margin-top: twConv(4);
+    width: 70%;
+  }
+}
+
+.recipe {
+  margin-top: twConv(4);
+  padding-left: twConv(4);
+  padding-right: twConv(4);
+
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: twConv(5.5);
+      font-weight: 500;
+      letter-spacing: twConv(0.25);
+    }
+  }
+
+  .subtitle {
+    margin-top: twConv(8);
+    font-size: twConv(5);
+  }
+
+  ul,
+  ol {
+    margin-top: twConv(1);
+    line-height: 1.35;
+    font-size: twConv(4.5);
+  }
+}

@@ -1,0 +1,133 @@
+@import "_vars", "_functions", "editor", "navbar", "recipes", "search";
+
+* {
+  font-family: $font-serif;
+}
+
+.container {
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+@each $point in $breakpoints {
+  @media (min-width: #{$point}) {
+    .container {
+      @if $point == nth($breakpoints, length($breakpoints)) {
+        max-width: 55vw;
+      } @else if $point == nth($breakpoints, length($breakpoints) - 1) {
+        max-width: 75vw;
+      } @else {
+        max-width: $point;
+      }
+    }
+  }
+}
+
+section.body {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: twConv(20);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: $gray-50;
+  margin-bottom: twConv(2.5);
+  padding: twConv(4);
+
+  transition: $transition-function $transition-timing all;
+  &:hover {
+    background-color: $gray-100;
+    box-shadow: $shadow-lg;
+  }
+
+  box-shadow: $shadow-md;
+  border-radius: twConv(1);
+
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: twConv(6);
+      margin-bottom: twConv(1);
+      margin-right: twConv(2);
+    }
+    .labels {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  .body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-top: twConv(4);
+
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+
+      margin-right: twConv(4);
+    }
+    .description {
+      color: $gray-500;
+      font-style: italic;
+
+      line-height: 1.5;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+.label {
+  display: inline-block;
+
+  font-size: twConv(3);
+  font-weight: bold;
+
+  padding-left: twConv(2);
+  padding-right: twConv(2);
+  padding-top: twConv(1);
+  padding-bottom: twConv(1);
+
+  text-transform: uppercase;
+
+  border-radius: twConv(1);
+  background-color: $highlight-background;
+
+  color: $highlight;
+  margin-right: twConv(1.25);
+
+  font-family: $font-sans;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+@media (min-width: #{nth($breakpoints, 3)}) {
+  .card {
+    .info {
+      flex-direction: row;
+      align-items: end;
+      font-size: twConv(4.5);
+    }
+    .body {
+      .description {
+        overflow: auto;
+        display: block;
+        -webkit-line-clamp: -1;
+      }
+    }
+  }
+}

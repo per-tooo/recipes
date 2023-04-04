@@ -1,0 +1,54 @@
+@import "_vars", "_functions";
+
+.search {
+  height: 100%;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: twConv(3.75);
+  right: twConv(3.75);
+
+  background-color: $background;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    input {
+      width: 75%;
+      padding: twConv(4);
+
+      flex-grow: 1;
+
+      outline: none;
+
+      font-size: twConv(4.5);
+
+      border: none;
+      border-top: 1px solid $gray-300;
+      border-bottom: 1px solid $gray-300;
+      border-left: 1px solid $gray-300;
+    }
+    button {
+      width: 25%;
+      padding: twConv(4);
+
+      border: 1px solid $gray-300;
+
+      flex-shrink: 1;
+
+      svg {
+        width: twConv(6);
+        height: twConv(6);
+      }
+    }
+  }
+}
+.active {
+  display: flex;
+}

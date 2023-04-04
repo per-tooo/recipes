@@ -1,0 +1,90 @@
+@import "_vars";
+
+.editor {
+  margin-top: twConv(4);
+  padding-left: twConv(4);
+  padding-right: twConv(4);
+  width: 100%;
+  height: fit-content;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .select-mode {
+      display: flex;
+      margin-bottom: twConv(3);
+      button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        padding-top: twConv(1.5);
+        padding-bottom: twConv(1.5);
+
+        background-color: white;
+        border: none;
+        border-bottom: 1px solid $highlight;
+
+        cursor: pointer;
+
+        &.active {
+          color: darken($highlight, 10);
+          background-color: $highlight-background;
+        }
+      }
+    }
+
+    .input-group {
+      margin-bottom: twConv(3);
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        padding: twConv(2);
+        border: 1px solid $gray-200;
+      }
+    }
+
+    .heading {
+      font-size: twConv(5);
+    }
+  }
+  button.save {
+    width: fit-content;
+    border: none;
+    background-color: $highlight;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: twConv(3);
+    padding-left: twConv(4);
+    padding-right: twConv(4);
+    padding-top: twConv(2);
+    padding-bottom: twConv(2);
+    border-radius: twConv(1);
+    box-shadow: $shadow-md;
+    outline: none;
+    margin-right: twConv(1);
+    margin-bottom: twConv(1);
+
+    &:active {
+      background-color: darken($highlight, 10);
+    }
+    &:hover {
+      box-shadow: $shadow-lg;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media (min-width: #{nth($breakpoints, 3)}) {
+  .editor {
+    padding: 0;
+  }
+}

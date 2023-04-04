@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chefkoch Ruhlands</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/built.css" />
+
+    <script src="assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <span class="heading"> Den Ruhlands ihr Kochbuch </span>
+        <hr />
+      </header>
+      <section class="body">
+        <!--& Navbar (side on desktop, bottom on mobile) -->
+        <div class="nav">
+          <a href="index.html" class="link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+              />
+            </svg>
+            <span>Home</span>
+          </a>
+          <a href="#" class="link" data-element="search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+            <span>Rezept suchen</span>
+          </a>
+          <a href="editor.html" class="link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+              />
+            </svg>
+            <span>Rezept schreiben</span>
+          </a>
+        </div>
+
+        <!--& Body (list of recipes) -->
+        <div class="recipes">
+          <div class="card">
+            <div class="info">
+              <span class="title"> Erbsensuppe mit Speck </span>
+              <div class="labels">
+                <span class="label">einfach</span>
+                <span class="label">papa approved</span>
+              </div>
+            </div>
+            <div class="body">
+              <img src="https://picsum.photos/400/400" />
+              <div class="description">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Voluptas, magnam! Impedit, itaque? Sequi ratione quos commodi
+                molestiae iure totam vero necessitatibus sapiente culpa
+                accusamus adipisci eaque earum iste harum, a eum illo
+                praesentium ab dolore?
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="search">
+      <div class="container">
+        <input type="text" placeholder="Suchbegriff..." />
+        <button type="button" data-element="search_close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <button type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

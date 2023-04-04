@@ -1,0 +1,112 @@
+@import "_functions", "_vars";
+
+//! contains styles for header and navbar
+header {
+  padding: twConv(4);
+  .heading {
+    font-size: twConv(8);
+  }
+  hr {
+    border: none;
+    border-top: 1px solid $gray-400;
+  }
+}
+
+.nav {
+  position: fixed;
+  left: twConv(4);
+  right: twConv(4);
+  bottom: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  padding-top: twConv(4);
+  padding-bottom: twConv(4);
+
+  border: 1px solid $gray-400;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  .link {
+    color: $text-base;
+
+    svg {
+      width: twConv(10);
+      height: twConv(10);
+    }
+    span {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: #{nth($breakpoints, 3)}) {
+  header {
+    padding: 0;
+    margin-top: twConv(14);
+
+    .heading {
+      font-size: twConv(12);
+    }
+  }
+
+  .nav {
+    position: static;
+
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    padding: 0;
+    margin-top: twConv(4);
+
+    border: none;
+
+    width: 30%;
+
+    .link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      font-size: twConv(5);
+      text-decoration: none;
+
+      margin-bottom: twConv(4);
+
+      &:hover {
+        svg {
+          transition: $transition-function $transition-timing opacity;
+          transition-delay: 75ms;
+          opacity: 1;
+        }
+        span {
+          transition: $transition-function $transition-timing transform;
+          transform: translateX(twConv(0));
+        }
+      }
+
+      svg {
+        width: twConv(8);
+        height: twConv(8);
+
+        margin-right: twConv(4);
+
+        transition: $transition-function $transition-timing opacity;
+        opacity: 0;
+      }
+      span {
+        display: block;
+
+        transition: $transition-function $transition-timing transform;
+        transform: translateX(twConv(-12));
+      }
+    }
+  }
+}

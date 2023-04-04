@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.50.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="view.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
+    <script src="node_modules/sortablejs/Sortable.js"></script>
+
+    <title data-element="title"></title>
+  </head>
+  <body class="pb-6">
+    <!-- !Navbar -->
+    <nav class="navbar bg-base-100 mb-2">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <label tabindex="0" class="btn btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+          </label>
+          <ul
+            tabindex="0"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li data-element="tab_trigger" data-target="view">
+              <a>Ansicht</a>
+            </li>
+            <li data-element="tab_trigger" data-target="add">
+              <a>Eintrag hinzufügen</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <a class="btn btn-ghost normal-case text-xl" data-element="title"></a>
+      </div>
+      <div class="navbar-end gap-2">
+        <input
+          type="text"
+          class="input input-bordered"
+          placeholder="Eintrag suchen"
+          data-element="search"
+        />
+        <button class="btn btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- !View -->
+    <section class="container" data-view="view">
+      <h2 class="text-2xl">Alle Charts</h2>
+      <hr class="my-4 border-t border-neutral-content rounded" />
+      <div class="wrapper justify-evenly"></div>
+    </section>
+
+    <!-- !Add -->
+    <section class="container" data-view="add">
+      <h2 class="text-2xl">Eintrag hinzufügen</h2>
+      <hr class="my-4 border-t border-neutral-content rounded" />
+      <div
+        class="flex flex-col sm:flex-row flex-wrap sm:items-end sm:flex-nowrap gap-6"
+        data-element="form"
+        data-method="get"
+        data-action="api_download.php"
+      >
+        <div class="form-control w-full sm:max-w-none">
+          <label class="label">
+            <span class="label-text">Company</span>
+          </label>
+          <input
+            type="text"
+            class="input input-bordered w-full sm:max-w-none"
+            id="name"
+            required
+          />
+        </div>
+        <div class="form-control w-full sm:max-w-none">
+          <label class="label">
+            <span class="label-text">Embed URL</span>
+          </label>
+          <input
+            type="url"
+            class="input input-bordered w-full sm:max-w-none"
+            id="url"
+            required
+          />
+        </div>
+        <button class="btn btn-primary max-w-sm" data-element="submit">
+          Herunterladen
+        </button>
+      </div>
+    </section>
+
+    <template id="card_share">
+      <div
+        class="card card-compact w-full md:w-[48%] bg-base-100 shadow-xl mb-4"
+        data-element="share"
+      >
+        <figure>
+          <img data-element="share_img" src="" alt="" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title" data-element="share_title"></h2>
+          <p data-element="description" data-element="share_date"></p>
+        </div>
+      </div>
+    </template>
+
+    <script>
+      let wrapper = document.querySelector(".wrapper");
+      new Sortable(wrapper, {
+        animation: 150,
+      });
+    </script>
+  </body>
+</html>
